@@ -72,6 +72,15 @@ body {
 /* ensure relative parent for absolute dropdown positioning */
 .dropdown {
   position: relative;
+  cursor: default; /* added so users know it's interactive when has submenu */
+}
+
+/* show dropdown on hover or keyboard focus */
+.dropdown:hover .dropdown-menu,
+.dropdown:focus-within .dropdown-menu {
+  display: block;
+  pointer-events: auto;
+  opacity: 1;
 }
 
 /* menu: anchored to left edge of the parent so items stay onscreen */
