@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Life Decked Cards</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>Life Decked Card Library</h1>
+    <p>Browse all cards, filter by traits, and build your deck.</p>
+  </header>
+
+  <section class="filters">
+    <label for="classification">Trait:</label>
+    <select id="classification">
+      <option value="">All</option>
+      <option value="green">Wisdom</option>
+      <option value="blue">Strength</option>
+      <option value="gray">Chaos</option>
+      <option value="gold">Chaos</option>
+      <option value="red">Chaos</option>
+      <option value="purple">Chaos</option>
+    </select>
+
+    <label for="rarity">Rarity:</label>
+    <select id="rarity">
+      <option value="">All</option>
+      <option value="common">Common</option>
+      <option value="uncommon">Rare</option>
+      <option value="rare">Rare</option>
+      <option value="super rare">Rare</option>
+      <option value="epic">Rare</option>
+      <option value="legendary">Legendary</option>
+    </select>
+
+    <button onclick="applyFilters()">Apply</button>
+  </section>
+
+  <section class="card-grid" id="card-grid">
+    <!-- Cards will be injected here -->
+  </section>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
