@@ -176,3 +176,19 @@ body {
   #card-grid { gap: 10px; padding: 10px; }
   .card { padding: 10px; }
 }
+
+/* Carousel styles (append to file) */
+#random-carousel { max-width: 1200px; margin: 18px auto; padding: 8px; box-sizing: border-box; }
+.random-carousel .carousel-slide { display:flex; gap:12px; align-items:center; background: #071012; padding:12px; border-radius:8px; overflow:hidden; }
+.random-carousel .carousel-media { flex: 0 0 220px; max-width: 220px; height: auto; }
+.random-carousel .carousel-media img { width:100%; height: 300px; object-fit: cover; border-radius:6px; display:block; }
+.random-carousel .carousel-caption { color: #f7f7f7; flex:1; }
+.random-carousel .carousel-caption h3 { margin:0 0 8px 0; font-size:18px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.random-carousel .carousel-caption .meta { opacity:0.9; font-size:13px; color:#cfcfcf; }
+
+/* fade-in animation */
+.fade-in { animation: fadeIn 360ms ease-in; }
+@keyframes fadeIn { from { opacity: 0.01; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+/* small placeholder */
+.carousel-placeholder { color:#bfbfbf; padding:28px; text-align:center; }
