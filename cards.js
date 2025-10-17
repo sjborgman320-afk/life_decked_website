@@ -1,12 +1,15 @@
 async function loadCards() {
-  const response = await fetch('https://your-api.com/cards', {
-    headers: {
-      'Authorization': 'Bearer YOUR_API_KEY',
-      'Content-Type': 'application/json'
-    }
-  });
-  const cards = await response.json();
-  renderCards(cards);
+  try {
+    const response = await fetch(API_CONFIG.endpoint, {
+      method: 'GET',
+      headers: API_CONFIG.headers
+    });
+
+    const cards = await response.json();
+    renderCards(cards);
+  } catch (error) {
+    console.error('Failed to load cards:', error);
+  }
 }
 
 function renderCards(cards) {
