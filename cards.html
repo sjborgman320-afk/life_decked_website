@@ -7,43 +7,56 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
+  <!-- inline header (replaces dynamic loader) -->
   <header class="site-header">
-    <h1>Life Decked Card Library</h1>
-    <p>Browse all cards, filter by traits, and build your deck.</p>
+    <div class="container">
+      <h1><a href="index.html">Life Decked Card Library</a></h1>
+      <nav class="site-nav">
+        <a href="cards.html">Cards</a>
+        <a href="cardpage.html">Card Page</a>
+        <!-- add other links as needed -->
+      </nav>
+    </div>
   </header>
 
   <section class="filters">
-    <label for="classification">Trait:</label>
+    <label for="editions">Editions:</label>
+    <select id="edition">
+      <option value="">All</option>
+      <option value="001">First Day at Work</option>
+      
+    </select>
+
+<label for="classification">Classification:</label>
     <select id="classification">
       <option value="">All</option>
-      <option value="green">Wisdom</option>
-      <option value="blue">Strength</option>
-      <option value="gray">Chaos</option>
-      <option value="gold">Chaos</option>
-      <option value="red">Chaos</option>
-      <option value="purple">Chaos</option>
+      <option value="green">Green</option>
+      <option value="blue">Blue</option>
+      <option value="gray">Gray</option>
+      <option value="gold">Gold</option>
+      <option value="red">Red</option>
+      <option value="purple">Purple</option>
     </select>
 
     <label for="rarity">Rarity:</label>
     <select id="rarity">
       <option value="">All</option>
       <option value="common">Common</option>
-      <option value="uncommon">Rare</option>
+      <option value="uncommon">Uncommon</option>
       <option value="rare">Rare</option>
-      <option value="super rare">Rare</option>
-      <option value="epic">Rare</option>
+      <option value="super rare">Super Rare</option>
+      <option value="epic">Epic</option>
       <option value="legendary">Legendary</option>
     </select>
 
-    <button onclick="applyFilters()">Apply</button>
+    <!--<button onclick="applyFilters()">Apply</button>-->
   </section>
 
   <section class="card-grid" id="card-grid">
-    <!-- Cards will be injected here -->
   </section>
 
+  <!-- removed header-loader.js -->
   <script src="config.js"></script>
   <script src="cards.js"></script>
-
 </body>
 </html>
