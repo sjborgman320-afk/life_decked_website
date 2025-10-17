@@ -20,8 +20,8 @@ function renderCards(cards) {
     const div = document.createElement('div');
     div.className = 'card';
     div.innerHTML = `
-      <h3>${card.name}</h3>
-      <p>Trait: ${card.trait}</p>
+      <h3>${card.card_name}</h3>
+      <p>Card Number: ${card.card_number}</p>
       <p>Rarity: ${card.rarity}</p>
     `;
     grid.appendChild(div);
