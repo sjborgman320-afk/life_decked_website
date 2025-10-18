@@ -59,20 +59,27 @@ function renderCards(cards) {
     const editionLeading = card.edition_number_leading ? String(card.edition_number_leading) : '';
     const cardNumberFormatted = card.card_number_formatted ||
       (card.card_number !== undefined && card.card_number !== null ? String(card.card_number).padStart(3, '0') : '');
-    const imageFile = (editionLeading || cardNumberFormatted) ? `${editionLeading}-${cardNumberFormatted}.png` : card.card_image;
+    //const imageFile = (editionLeading || cardNumberFormatted) ? `${editionLeading}-${cardNumberFormatted}.png` : card.card_image;
+    const imageFile = window.API_CONFIG.storage_url +"/" + String(editionLeading).trim() + "/" + String(card.class_sort).trim() + "-"+ String(card.classification).trim() + "/Full_Card/" + ((editionLeading && cardNumberFormatted) ? `${editionLeading}-${cardNumberFormatted}.png` : card.card_image);
+console.log(imageFile);
+//https://clmrqyimovyudraksfze.supabase.co/storage/v1/object/public/Life_Decked/001/1-Green/Full_Card/001-001.png
+//https://clmrqyimovyudraksfze.supabase.co/storage/v1/object/public/Life_Decked/001-1-Green/Full_Card/001-001.png
+
 
     // build an id like "ED1-005" or fallback to card.id
     const cardId = (editionLeading && cardNumberFormatted) ? `${editionLeading}-${cardNumberFormatted}` : (card.id || card.card_id || '');
 
     // link to cardpage.html with query, open in new tab
     const cardPageUrl = `cardpage.html?id=${encodeURIComponent(cardId)}`;
-
+    const backupimag = window.API_CONFIG.storage_url + '/Life_Decked_Back.png';
     const div = document.createElement('div');
     div.className = 'card';
     div.innerHTML = `
       <h3 title="${card.card_name}">${card.card_name}</h3>
       <a href="${cardPageUrl}" target="_blank" rel="noopener">
-        <img src="images/cards/${imageFile}" alt="${card.card_name}" />
+       <img src="${imageFile}" alt="${card.card_name}" 
+     onerror="this.onerror=null;this.src='${backupimag}';" />
+
       </a>
     `;
     grid.appendChild(div);
