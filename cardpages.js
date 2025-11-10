@@ -61,8 +61,10 @@ function renderCard(card) {
   const editionLeading = card.edition_number_leading ? String(card.edition_number_leading) : '';
   const cardNumberFormatted = card.card_number_formatted ||
     (card.card_number !== undefined && card.card_number !== null ? String(card.card_number).padStart(3, '0') : '');
-  const imageFile = (editionLeading || cardNumberFormatted) ? `${editionLeading}-${cardNumberFormatted}.png` : (card.card_image || '');
-
+  //const imageFile = (editionLeading || cardNumberFormatted) ? `${editionLeading}-${cardNumberFormatted}.png` : (card.card_image || '');
+    const imageFile = window.API_CONFIG.storage_url +"/" + String(editionLeading).trim() + "/" + String(card.class_sort).trim() + "-"+ String(card.classification).trim() + "/Full_Card/" + ((editionLeading && cardNumberFormatted) ? `${editionLeading}-${cardNumberFormatted}.png` : card.card_image);
+console.log(imageFile);
+   const backupimag = window.API_CONFIG.storage_url + '/Life_Decked_Back.png';
   // build a list of extra fields to show (only present fields)
   const extras = [
     { label: 'Artist', value: card.artist },
@@ -82,8 +84,9 @@ function renderCard(card) {
       <dt><strong>Edition:</strong></dt><dd>${card.edition_name || card.edition_number || ''}</dd>
       <dt><strong>Card #:</strong></dt><dd>${cardNumberFormatted}</dd>
     </dl>
-    ${imageFile ? `<img src="images/cards/${imageFile}" alt="${card.card_name || ''}" style="max-width:320px;">` : ''}
-  
+ 
+        <img src="${imageFile}" alt="${card.card_name}" 
+     onerror="this.onerror=null;this.src='${backupimag}';" />
     <p>${card.card_text_01 || ''}</p>
     ${extras.length ? '<hr>' : ''}
     ${extras.map(e => `<p><strong>${e.label}:</strong> ${e.value}</p>`).join('')}
