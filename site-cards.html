@@ -8,14 +8,14 @@
 </head>
 <body>
   <!-- inline header (replaces dynamic loader) -->
-  <header class="site-header">
-    <div class="container">
-      <h1><a href="index.html">Life Decked Card Library</a></h1>
-      <nav class="site-nav">
-        <a href="cards.html">Cards</a>
-        <a href="cardpage.html">Card Page</a>
-        <!-- add other links as needed -->
-      </nav>
+  <div id="navbar"></div>
+  <script>
+    fetch('/site-header.html')
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById('navbar').innerHTML = data;
+      });
+  </script>
     </div>
   </header>
 
@@ -57,6 +57,6 @@
 
   <!-- removed header-loader.js -->
   <script src="config.js"></script>
-  <script src="cards.js"></script>
+  <script src="script-cards.js"></script>
 </body>
 </html>

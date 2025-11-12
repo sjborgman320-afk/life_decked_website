@@ -14,7 +14,7 @@ async function loadCards() {
       method: 'GET',
       headers: window.__API_CFG__.headers
     });
-
+//console.log(window.__API_CFG__.headers);
     const cards = await response.json();
     allCards = Array.isArray(cards) ? cards : [];
     renderCards(allCards);
@@ -61,7 +61,7 @@ function renderCards(cards) {
       (card.card_number !== undefined && card.card_number !== null ? String(card.card_number).padStart(3, '0') : '');
     //const imageFile = (editionLeading || cardNumberFormatted) ? `${editionLeading}-${cardNumberFormatted}.png` : card.card_image;
     const imageFile = window.API_CONFIG.storage_url +"/" + String(editionLeading).trim() + "/" + String(card.class_sort).trim() + "-"+ String(card.classification).trim() + "/Full_Card/" + ((editionLeading && cardNumberFormatted) ? `${editionLeading}-${cardNumberFormatted}.png` : card.card_image);
-console.log(imageFile);
+//console.log(imageFile);
 //https://clmrqyimovyudraksfze.supabase.co/storage/v1/object/public/Life_Decked/001/1-Green/Full_Card/001-001.png
 //https://clmrqyimovyudraksfze.supabase.co/storage/v1/object/public/Life_Decked/001-1-Green/Full_Card/001-001.png
 
@@ -70,7 +70,7 @@ console.log(imageFile);
     const cardId = (editionLeading && cardNumberFormatted) ? `${editionLeading}-${cardNumberFormatted}` : (card.id || card.card_id || '');
 
     // link to cardpage.html with query, open in new tab
-    const cardPageUrl = `cardpage.html?id=${encodeURIComponent(cardId)}`;
+    const cardPageUrl = `site-cardpage.html?id=${encodeURIComponent(cardId)}`;
     const backupimag = window.API_CONFIG.storage_url + '/Life_Decked_Back.png';
     const div = document.createElement('div');
     div.className = 'card';
