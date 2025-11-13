@@ -1,6 +1,6 @@
 // Normalize possible global names (safe: won't redeclare if other scripts run the same)
 var API_CFG = window.__API_CFG__ || (window.__API_CFG__ = (window.API_CONFIG || window.API_Config || window.apiConfig));
-
+ 
 function fail(msg) {
   const container = document.getElementById('card-container');
   if (container) container.innerText = msg;
@@ -115,4 +115,5 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   fail('No card identifier provided. Provide edition_number_leading and card_number_formatted or legacy id.');
+
 });
