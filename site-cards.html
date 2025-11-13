@@ -8,14 +8,27 @@
 </head>
 <body>
   <!-- inline header (replaces dynamic loader) -->
-  <div id="navbar"></div>
-  <script>
-    fetch('/site-header.html')
-      .then(response => response.text())
-      .then(data => {
-        document.getElementById('navbar').innerHTML = data;
-      });
-  </script>
+<div id="navbar"></div>
+<header class="site-header">
+  <nav class="navbar">
+    <a href="/index.html" class="Logo-Link">
+      <div class="logo">Life Decked</div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/site-about.html">About</a></li>
+      <li><a href="/site-rules.html">Rules</a></li>
+      <li><a href="/site-product.html">Products</a></li>
+      <li><a href="/site-news.html">News</a></li>
+      <li class="dropdown">
+        <a href="#">Cards ▾</a>
+        <ul class="dropdown-menu">
+          <li><a href="/site-cards.html">Browse Cards</a></li>
+        </ul>
+      </li>
+      <li><a href="/site-contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
     </div>
   </header>
 
