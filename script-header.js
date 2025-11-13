@@ -1,1 +1,5 @@
-<script src="script-header.js"></script>
+fetch('/site-header.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('navbar').innerHTML = data;
+  });
